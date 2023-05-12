@@ -12,8 +12,7 @@ This is a test code to parse GPS Data from NMEA 0183 messaging protocol.
 void app_main(void)
 {
   // Sample payloads from NMEA 0183 Protocol
-  const char *packet = "0,3855.4487,N,09446.0071,W,1,07,1.1,370.5$GPGGA,210230,3855.4487,N,09446.0071,W,1,07,1.1,370.5,M,-29.5,M,,*7A\r\n987u";
-  // const char *packet = "Lorem$GPGGA,210230,3855.4487,N,09446.0071,W,1,07,1.1,370.5,M,-29.5,M,,*7A\r\n987u";
+  const char *packet = "Lorem$GPGGA,210230,3855.4487,N,09446.0071,W,1,07,1.1,370.5,M,-29.5,M,,*7A\r\n987u";
   // const char *packet = "Lorem$GPGGA,210230,3855.4487,N,09446.0071,W,1,07,1.1,370.5,M,-29.5,M,,*7A\r\n987u";
   // const char *packet = "Lorem$GPGGA,210230,3855.4487,N,09446.0071,W,1,07,1.1,370.5,M,-29.5,M,,*7A\r\n987u";
 
