@@ -14,7 +14,7 @@ To install the GPS Parser Library, follow these steps:
 
 To make this library work perfectly, these tools are needed:
 
-1. ESP-IDF v5.0 Stable release
+1. [ESP-IDF v5.0 Stable release](https://github.com/espressif/esp-idf/releases)
 2. [ESP-IDF tool chain](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/windows-setup.html)
 
 ## Usage
