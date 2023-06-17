@@ -15,11 +15,13 @@ The code for the GPS data parser follows these steps to extract the necessary in
 
 5. The calculated checksum is compared with the extracted checksum from the given string to validate the integrity of the data.
 
-6. Once the checksum is validated, the code starts parsing the time stamp (the first field) using the built-in function `strsep()`. This function divides a string into two halves based on the provided delimiter. If `strsep()` returns NULL, it means there is no data between two consecutive commas.
+6. Once the checksum is validated, the code starts parsing `the time_stamp` (the first field) using the built-in function `strsep()`. This function divides a string into two halves based on the provided delimiter. If `strsep()` returns NULL, it means there is no data between two consecutive commas.
 
 7. If the time field is NULL, the code stores the default value into the `time_stamp` field.
 
 8. `strsep()` is used iteratively until the last available field. If `strsep()` returns an empty string, a message "Not Found!" is stored in that field.
+
+9. The data can be displayed on terminal using `ESP_LOGX` or `printf()` function.  
 
 ## Usage
 To use the GPS Parser Library, follow these steps:
@@ -42,18 +44,16 @@ Include the `data_parser.h` header file in your C source code.
 Link against the GPS Parser Library during compilation.
 
 ## Functions Reference
-`gpsDataF(char* sentence, struct gps_data_parse* gpsData)`
-The `gpsDataF()` function parses a NMEA 0183 (GPGGA) sentence and extracts the GPS data fields into a `struct gps_data_parse`.
+`gps_data Parse_gps_data(char *msg)`
+The `Parse_gps_data()` function parses a NMEA 0183 (GPGGA) sentence and extracts the GPS data fields into a `struct gps_data`.
 
 Parameters:
-- `sentence` - A pointer to a null-terminated string representing a NMEA 0183 (GPGGA) sentence.
-- `gpsData` - A pointer to a `struct gps_data_parse` to store the parsed GPS data.
+- `msg` - A pointer to a null-terminated string representing a NMEA 0183 (GPGGA) sentence.
+Return:
+- `gps_data` - Structure containing the individual GPS data fields. 
 
-`printData(struct gps_data_parse* gpsData)`
-The `printData()` function prints the extracted GPS data fields stored in a `struct gps_data_parse` to the console.
+`void print_data(gps_data)`
+The `print_data()` function prints the extracted GPS data fields stored in a `struct gps_data` to the console.
 
 Parameters:
-- `gpsData` - A pointer to a `struct gps_data_parse` containing the parsed GPS data.
-
-Contributing
-If you would like to contribute to the GPS NMEA 0183 Data Parsing library, please feel free to submit a pull request.
+- `gps_data` - Structure `struct gps_data_parse` containing the parsed GPS data.
