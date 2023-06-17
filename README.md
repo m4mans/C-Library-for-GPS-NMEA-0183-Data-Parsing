@@ -5,7 +5,7 @@ The GPS Parser Library is a C library for parsing GPS data from NMEA 0183 (GPGGA
 ## Approach
 The code for the GPS data parser follows these steps to extract the necessary information and monitor missing or incorrect data:
 
-1. The GPS data parser code consists of a function called `Parse_gps_data` to fulfill the requirements. This function takes a GPGGA string, performs operations to extract useful information, and returns the field data in a structure.
+1. The GPS data parser code consists of a function called `Parse_gps_data` to fulfill the requirements of parsing data. This function takes a GPGGA string, performs operations to extract useful information, and returns the individual fields data in a structure `gps_data`.
 
 2. At the start of the function, the code initializes all the fields with default values.
 
@@ -15,13 +15,15 @@ The code for the GPS data parser follows these steps to extract the necessary in
 
 5. The calculated checksum is compared with the extracted checksum from the given string to validate the integrity of the data.
 
-6. Once the checksum is validated, the code starts parsing `the time_stamp` (the first field) using the built-in function `strsep()`. This function divides a string into two halves based on the provided delimiter. If `strsep()` returns NULL, it means there is no data between two consecutive commas.
+6. Once the checksum is validated, the code starts parsing `the time_stamp` (the first field) using the built-in function `strsep()`. This function divides a string into two halves based on the provided delimiter returning two strings, one holding the string before the delimiter (,) `pre_delimiter` while the other string contains the data after the delimiter, `post_delimiter` . If `strsep()` returns NULL, it means there is no data between two consecutive commas.
 
 7. If the time field is NULL, the code stores the default value into the `time_stamp` field.
 
-8. `strsep()` is used iteratively until the last available field. If `strsep()` returns an empty string, a message "Not Found!" is stored in that field.
+8. `strsep()` is used iteratively for 14 times until the last available field. If `strsep()` returns an empty string, a message `Not Found!` is stored in that field.
 
-9. The data can be displayed on terminal using `ESP_LOGX` or `printf()` function.  
+9. After it's done parsing the data is returned.  
+
+10. The data can be displayed on terminal using `ESP_LOGX` or `printf()` function.  
 
 ## Usage
 To use the GPS Parser Library, follow these steps:
