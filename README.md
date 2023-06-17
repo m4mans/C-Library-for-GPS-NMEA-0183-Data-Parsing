@@ -29,10 +29,6 @@ The code for the GPS data parser follows these steps to extract the necessary in
 I've executed 2 unit tests, one with a valid string containing all the fields data but one.  
 I implemented the second test with a NULL string. Both strings passed the test sucessfully.
 
-
-## Usage
-To use the GPS Parser Library, follow these steps:
-
 ## Installation
 To include the GPS Parser component in your IDF project, follow these steps:
 
@@ -45,10 +41,6 @@ To make this library work perfectly, the following tools are needed:
 
 - ESP-IDF v5.0 Stable release
 - ESP-IDF toolchain
-
-Download or clone the repository to your local machine.
-Include the `data_parse.h` header file in your C source code.
-Link against the GPS Parser Library during compilation.
 
 ## Functions Reference
 `gps_data Parse_gps_data(char *msg)`
