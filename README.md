@@ -1,4 +1,4 @@
-# C Library for GPS NMEA 0183 Data Parsing
+# C Library for GPS Data Parsing
 
 The GPS Parser Library is a C library for parsing GPS data from NMEA 0183 (GPGGA) payloads. It provides a simple and easy-to-use interface for extracting GPS data fields such as latitude, longitude, altitude, time, and the number of satellites from NMEA 0183 (GPGGA) strings.
 
