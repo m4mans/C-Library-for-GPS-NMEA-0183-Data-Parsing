@@ -47,7 +47,7 @@ To make this library work perfectly, the following tools are needed:
 - ESP-IDF toolchain
 
 Download or clone the repository to your local machine.
-Include the `data_parser.h` header file in your C source code.
+Include the `data_parse.h` header file in your C source code.
 Link against the GPS Parser Library during compilation.
 
 ## Functions Reference
