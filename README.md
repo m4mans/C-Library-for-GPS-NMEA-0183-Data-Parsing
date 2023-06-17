@@ -9,7 +9,7 @@ The code for the GPS data parser follows these steps to extract the necessary in
 
 2. At the start of the function, the code initializes all the fields with default values.
 
-3. Then, it checks whether the string starts with '$GPGGA' using the built-in string function `strcmp()`. If it does, the code proceeds with the parsing. Otherwise, the function returns, and the code execution is terminated.
+3. Then, it checks whether the string starts with talker ID '$GPGGA' using the built-in string function `strcmp()`. If it does, the code proceeds with the parsing. Otherwise, the function returns, and the code execution is terminated.
 
 4. Before parsing, it checks the validity of the checksum. It retrieves the exact checksum value given in the GPGGA sentence using a for loop. Next, it calculates the checksum of the given data by adding the XOR of all the characters between '$' and '*'. The XORed sum is then converted to hexadecimal to obtain the actual hexadecimal checksum.
 
@@ -17,13 +17,18 @@ The code for the GPS data parser follows these steps to extract the necessary in
 
 6. Once the checksum is validated, the code starts parsing `the time_stamp` (the first field) using the built-in function `strsep()`. This function divides a string into two halves based on the provided delimiter returning two strings, one holding the string before the delimiter (,) `pre_delimiter` while the other string contains the data after the delimiter, `post_delimiter` . If `strsep()` returns NULL, it means there is no data between two consecutive commas.
 
-7. If the time field is NULL, the code stores the default value into the `time_stamp` field.
+7. If the time field is NULL, the code stores the `missing field` value into the `time_stamp` field.
 
 8. `strsep()` is used iteratively for 14 times until the last available field. If `strsep()` returns an empty string, a message `Not Found!` is stored in that field.
 
 9. After it's done parsing the data is returned.  
 
 10. The data can be displayed on terminal using `ESP_LOGX` or `printf()` function.  
+
+## Unit Tests 
+I've executed 2 unit tests, one with a valid string containing all the fields data but one.  
+I implemented the second test with a NULL string. Both strings passed the test sucessfully.
+
 
 ## Usage
 To use the GPS Parser Library, follow these steps:
