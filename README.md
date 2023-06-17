@@ -63,4 +63,4 @@ Return:
 The `print_data()` function prints the extracted GPS data fields stored in a `struct gps_data` to the console.
 
 Parameters:
-- `gps_data` - Structure `struct gps_data_parse` containing the parsed GPS data.
+- `gps_data` - Structure `struct gps_data` containing the parsed GPS data.
