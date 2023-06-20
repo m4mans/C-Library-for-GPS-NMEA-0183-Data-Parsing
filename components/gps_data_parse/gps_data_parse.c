@@ -1,7 +1,7 @@
 /*
 This library just parses GP Talker ID.
-It uses a function "gpsDataF" to parse Data.
-The Function takes a payload in the form of a string and a pointer to the struct and gives individual data fields.
+It uses a function "Parse_gps_data" to parse Data.
+The Function takes a payload in the form of a string and returns a struct with individual data fields.
 There's another function to print all the fields at once, saving the effort to get individual fields one by one.
 */
 
